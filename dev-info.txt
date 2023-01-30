@@ -1,0 +1,20 @@
+### template mastering
+
+1. paste index code and use @yield() - layouts/userlayout.blade.php
+
+2. paste registration files code and use @extends() and @section() in - registration.blade.php
+
+3. make route for registration page in - web.php
+
+Cmd:php artisan make:model CrudOperations -mcr
+
+4. declare protected table variable in - CrudOperations model
+
+5. create tables in - crud_operations migration
+
+Cmd: php artisan migrate
+
+
+### create CrudOperations
+
+1. 
