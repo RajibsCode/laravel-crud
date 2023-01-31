@@ -1,0 +1,47 @@
+
+### create CrudOperations
+
+*remove previous register route
+1. make crud_operations controller resource route - web.php
+
+Cmd: php artisan route:list
+2. return register page view() in create() method in - CrudOperations controller
+
+3. then take dropdown country data from DB and set variable compact() in route view in - create() method
+
+4. show the dropdown data's with foreach() loop in - register blade
+
+*countries table must have in DB
+Cmd: php artisan make:model Country
+
+5. declare protected $table variable in - Country model
+*use model in controller
+
+6. set form action route() and @csrf token in form in - register blade
+
+7. check form with print_r($request->all());  in - store method
+
+8. add protected $fillable array in - CrudOperations model
+
+9. ignore token and button data from request with except() in - store method
+
+*change inputs name , id and set same as tables column name
+
+10. set attributes for input like lowercase or comma seperate value in - CrudOperations model
+* use Illuminate\Support\Str;
+
+11. create() use in - store method
+
+*create index.blade.php file
+12. use @extends() and @section() in - index.blade.php
+
+13. return index view() in - index method
+
+14. return redirect() to index after submit form in - store method
+
+*create flash-message.blade.php in view
+15. then set flash condition in - flash-message.blade.php
+
+16. use @include() for flash message print in - index blade
+
+17. use with() for set flash message - in store method

@@ -8,16 +8,18 @@
                 <h2> Registration </h2>
                 <hr>
                 <div class="card-body">
-                    <form method="POST" action="" enctype="multipart/form-data">
+                    <!-- 6. set action route and csrf token -->
+                    <form method="POST" action="{{ route('crud.store') }}" enctype="multipart/form-data">
+                        @csrf
                         <div class="row mb-3">
                             <div class="col">
-                                <label for="fname" class="form-label">First Name</label>
-                                <input type="text" class="form-control" id="fname" name="fname" placeholder="Meet"
+                                <label for="first_name" class="form-label">First Name</label>
+                                <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Rajib"
                                        required="">
                             </div>
                             <div class="col">
-                                <label for="lname" class="form-label">Last Name</label>
-                                <input type="text" class="form-control" id="lname" name="lname" placeholder="Shah"
+                                <label for="last_name" class="form-label">Last Name</label>
+                                <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Sarder"
                                        required="">
                             </div>
                         </div>
@@ -28,8 +30,8 @@
                                        placeholder="name@example.com" required="">
                             </div>
                             <div class="col">
-                                <label for="mobile" class="form-label">Contact Number</label>
-                                <input type="tel" class="form-control" id="mobile" name="mobile"
+                                <label for="contact" class="form-label">Contact Number</label>
+                                <input type="tel" class="form-control" id="contact" name="contact"
                                        placeholder="1234567890" required="">
                             </div>
                         </div>
@@ -65,11 +67,14 @@
                                           placeholder="address" required=""></textarea>
                             </div>
                             <div class="col">
-                                <label for="inputCountry" class="form-label">Country</label>
-                                <select class="form-select" id="inputCountry" aria-label="Default select example"
+                            <label for="country" class="form-label">Country</label>
+                            <select class="form-select" name="country" id="country" aria-label="Default select example"
                                         required="">
-                                    <option selected disabled>Select</option>
-                                    <option value="">India</option>
+                            <option selected disabled>Select</option>
+                            <!-- 4. show the dropdown data from db -->
+                            @foreach($countries as $country)
+                            <option value="{{ $country->id }}">{{ $country->name }}</option>
+                            @endforeach
 
                                 </select>
                             </div>

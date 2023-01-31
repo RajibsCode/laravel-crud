@@ -14,7 +14,3 @@ Cmd:php artisan make:model CrudOperations -mcr
 
 Cmd: php artisan migrate
 
-
-### create CrudOperations
-
-1. 

@@ -17,6 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/register', function () {
-    return view('registration');
-});
+// Route::get('/register', function () {
+//     return view('registration');
+// });
+
+// 1. CrudOperations route
+Route::resource('crud',\App\Http\Controllers\CrudOperationsController::class);
+

@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\CrudOperations;
 use Illuminate\Http\Request;
-
+use App\Models\Country;
+use App\Models\CrudOperations;
 class CrudOperationsController extends Controller
 {
     /**
@@ -14,7 +14,8 @@ class CrudOperationsController extends Controller
      */
     public function index()
     {
-        //
+        //13. index view
+        return view('index');
     }
 
     /**
@@ -24,7 +25,10 @@ class CrudOperationsController extends Controller
      */
     public function create()
     {
-        //
+        // 3. data from db and set in compact()
+        $countries = Country::all();
+        // 2. return register page view
+        return view('registration',compact('countries'));
     }
 
     /**
@@ -35,7 +39,18 @@ class CrudOperationsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        //8. ignore tokeen and submit button data
+        $requestData = $request->except(['_token','regist']);
+        //11. create() use
+        $store = CrudOperations::create($requestData);
+        //14. redirect after form submit
+        return redirect()->route('crud.index')->with('success','User Added Successfully');// 17. use with() for set flash message
+
+        // 7.check form
+        // echo "<pre>";
+        // print_r($store);
+        // exit();
     }
 
     /**
