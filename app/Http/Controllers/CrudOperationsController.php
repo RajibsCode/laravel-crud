@@ -42,6 +42,13 @@ class CrudOperationsController extends Controller
 
         //8. ignore tokeen and submit button data
         $requestData = $request->except(['_token','regist']);
+
+        // 1. random image name set for img input
+        $imgName = 'lv_' . rand() . '.' . $request->profile->extension();
+        // 2. move upload file in public folder
+        $request->profile->move(public_path('images/user/'),$imgName);
+        $requestData['profile'] = $imgName;// for img name store in db
+
         //11. create() use
         $store = CrudOperations::create($requestData);
         //14. redirect after form submit

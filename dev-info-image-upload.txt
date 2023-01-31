@@ -1,0 +1,6 @@
+### image upload
+
+*must declare enctype="multipart/form-data" in form
+1. random image name set for img input - in store method
+
+2. move() upload file in public folder - in store method
