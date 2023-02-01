@@ -1,0 +1,12 @@
+### pagination
+
+1. change get() to paginate('10') in - index() method
+
+2. register bootstrap paginator in - app service provider file
+*use Illuminate\Pagination\Paginator;
+
+*paginator::useBootstrap(); in - boot()
+
+3. use in blade file for show pagination
+ {!! $users->links() !!}
+

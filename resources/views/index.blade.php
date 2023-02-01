@@ -7,7 +7,7 @@
         <div class="card my-5">
             <div class="card-body">
                 <h4 class="card-title text-center">All Users</h4>
-                <a  class="btn btn-success" href="registration.html">Registration</a>
+                <a  class="btn btn-success" href="{{ route('crud.create') }}">Registration</a>
                 <hr>
                 {{-- 16. include for flash message show --}}
                 @include('flash-message')
@@ -63,6 +63,8 @@
 
                     </tbody>
                 </table>
+
+                {!! $users->links() !!}
             </div>
         </div>
     </div>

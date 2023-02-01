@@ -16,7 +16,7 @@ class CrudOperationsController extends Controller
     {
         // 1. use get() for catch users data 
         // 5. with() for show country
-        $users = CrudOperations::with('getCountry')->get();
+        $users = CrudOperations::with('getCountry')->paginate('10');//1. paginate() for pagination show
         
 
         // 2. check data catch or not
