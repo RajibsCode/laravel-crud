@@ -94,9 +94,12 @@ class CrudOperationsController extends Controller
      * @param  \App\Models\CrudOperations  $crudOperations
      * @return \Illuminate\Http\Response
      */
-    public function edit(CrudOperations $crudOperations)
+    public function edit(CrudOperations $crud)//3. set $crud in head
     {
-        //
+        //2. fetch country data and compact()
+        $countries = Country::all();
+        // 1. return view
+        return view('edit',compact('countries','crud'));
     }
 
     /**
@@ -106,9 +109,33 @@ class CrudOperationsController extends Controller
      * @param  \App\Models\CrudOperations  $crudOperations
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, CrudOperations $crudOperations)
+    public function update(Request $request, CrudOperations $crud)
     {
-        //
+        //6.set data which want to update
+     $crud->first_name = $request->first_name ?? $crud->first_name;
+     $crud->last_name = $request->last_name ?? $crud->last_name;
+     $crud->email = $request->email ?? $crud->email;
+     $crud->contact = $request->contact ?? $crud->contact;
+     $crud->gender = $request->gender ?? $crud->gender;
+     $crud->hobbies = $request->hobbies ?? $crud->hobbies;
+     $crud->address = $request->address ?? $crud->address;
+     $crud->country = $request->country ?? $crud->country;
+     //9. condition for profile image update
+     if (isset($request->profile)) {
+        //random image name set for img input
+        $imgName = 'lv_' . rand() . '.' . $request->profile->extension();
+        //move upload file in public folder
+        $request->profile->move(public_path('images/user/'),$imgName);
+        $crud['profile'] = $imgName;// for img name store in db
+     }
+     $crud->save(); //7.use for update data
+
+        //8. then redirect after update
+        return redirect()->route('crud.index')->with('success','User Updated Successfully');
+        
+        // echo"<pre>";
+        // print_r($crud);
+        // exit;
     }
 
     /**

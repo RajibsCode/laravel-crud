@@ -70,7 +70,7 @@
                             <label for="country" class="form-label">Country</label>
                             <select class="form-select" name="country" id="country" aria-label="Default select example"
                                         required="">
-                            <option selected disabled>Select</option>
+                            <option selected>Select</option>
                             <!-- 4. show the dropdown data from db -->
                             @foreach($countries as $country)
                             <option value="{{ $country->id }}">{{ $country->name }}</option>

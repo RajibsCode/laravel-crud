@@ -1,0 +1,22 @@
+### update operation 
+
+*create edit blade file
+ 1. return view in - edit() method
+
+ 2. fetch country data and compact()
+
+ 3. set $crud in edit() and update() method head
+
+ 4. change update form action route
+ {{ route('crud.update',['crud'=>$crud->id]) }}
+
+ 5. use @method('PUT') in update form
+
+ 6. set data which want to update in - update() method
+
+ 7. $crud->save(); use for update data
+
+ 8. then redirect after update
+
+ 9. condition for profile image update in - update()
+
