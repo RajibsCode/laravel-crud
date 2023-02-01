@@ -1,0 +1,15 @@
+### delete operation 
+
+1. use this code in - index blade
+
+<form class="d-inline" method="POST" action="{{ route('crud.destroy',['crud' => $user->id]) }}">
+     @csrf
+     @method('DELETE')
+     <button class="delete_button" type="submit"><i class="fa-solid fa-trash"></i></button>
+</form>
+
+2. use $crud variablein destroy() head
+
+3. use delete() for delete data in - destroy()
+
+4. return redirect after delete

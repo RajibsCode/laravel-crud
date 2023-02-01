@@ -144,8 +144,11 @@ class CrudOperationsController extends Controller
      * @param  \App\Models\CrudOperations  $crudOperations
      * @return \Illuminate\Http\Response
      */
-    public function destroy(CrudOperations $crudOperations)
+    public function destroy(CrudOperations $crud)
     {
-        //
+        //3. use delete()
+        $crud->delete();
+        // 4. return redirect after delete
+        return redirect()->route('crud.index')->with('error','User Deleted Successfully');
     }
 }

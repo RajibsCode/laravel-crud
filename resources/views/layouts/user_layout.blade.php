@@ -7,7 +7,17 @@
         <style>
             .table th {
                 text-align: center;
-            } 
+            }
+            .delete_button {
+                background: none;
+                color: inherit;
+                border: none;
+                padding: 0;
+                font: inherit;
+                cursor: pointer;
+                color:#0A58CA;
+
+            }
         </style>
     </head>
     <body>

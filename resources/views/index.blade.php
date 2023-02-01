@@ -3,7 +3,7 @@
 @extends('layouts.user_layout')
 @section('content')
 <div class="row">
-    <div class="col-sm-12 col-md-7 col-lg-12 mx-auto">
+    <div class="col-sm-12 col-md-8 col-lg-12 mx-auto">
         <div class="card my-5">
             <div class="card-body">
                 <h4 class="card-title text-center">All Users</h4>
@@ -41,11 +41,18 @@
                         <td>{{ $user->getCountry->name }}</td>
                         <td>
                         <!-- 7. set route() for action buttons -->
-                             <a href="{{ route('crud.show',['crud' => $user->id]) }}"><i class="fa-solid fa-eye"></i></a>
+                            <a href="{{ route('crud.show',['crud' => $user->id]) }}"><i class="fa-solid fa-eye"></i></a>
+
 
                             <a class="mx-2" href="{{ route('crud.edit',['crud' => $user->id]) }}"><i class="fa-solid fa-pen-to-square"></i></a>
+                <!-- 1. make form for delete -->
+                <form class="d-inline" method="POST" action="{{ route('crud.destroy',['crud' => $user->id]) }}">
+                    @csrf
+                    @method('DELETE')
+                    <button class="delete_button" type="submit"><i class="fa-solid fa-trash"></i></button>
+                    
+                </form>
 
-                            <a href="{{ route('crud.destroy',['crud' => $user->id]) }}"><i class="fa-solid fa-trash"></i></a>
                         </td>
                         </tr>
                         @empty
