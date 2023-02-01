@@ -37,4 +37,15 @@ class CrudOperations extends Model
         $this->attributes['hobbies'] = implode(',',$value);
     }
 
+    // 4. set relation for show country
+    public function getCountry() {
+        return $this->belongsTo(Country::class, 'country', 'id');
+    }
+
+    // 8. change hobbies attribute
+    public function getHobbiesArrAttribute()
+    {
+        return explode(',',$this->hobbies);
+    }
+
 }

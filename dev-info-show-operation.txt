@@ -1,0 +1,23 @@
+### show operation
+
+1. explicit binding for country data in - Route Service Provider file
+
+2. use $crud variable in - show() methods head
+
+*create show blade file
+3. return view() in - show
+
+4. fetch Country model for get countries and use compact() in - show()
+
+5. show value in - show blade
+
+6. use @if() and @endif() for show radio buttons,country value
+
+7. image show {{ url('images/user').'/'.$crud->profile }}
+
+8. for show hobbies change hobbies attribute in - CrudOperations model
+*then show the hobbies like radio buttons
+@if(in_array('Travelling', $crud->hobbies_arr)) checked @endif
+
+
+

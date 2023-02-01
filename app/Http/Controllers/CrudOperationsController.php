@@ -14,8 +14,18 @@ class CrudOperationsController extends Controller
      */
     public function index()
     {
+        // 1. use get() for catch users data 
+        // 5. with() for show country
+        $users = CrudOperations::with('getCountry')->get();
+        
+
+        // 2. check data catch or not
+        // echo "<pre>";
+        // print_r($users);
+        // exit();
+
         //13. index view
-        return view('index');
+        return view('index',compact('users'));
     }
 
     /**
@@ -66,9 +76,16 @@ class CrudOperationsController extends Controller
      * @param  \App\Models\CrudOperations  $crudOperations
      * @return \Illuminate\Http\Response
      */
-    public function show(CrudOperations $crudOperations)
+    public function show(CrudOperations $crud)//2. use $crud variable
     {
-        //
+
+        // echo"<pre>";
+        // print_r($crud->hobbies_arr);
+        // exit;
+        //4.fetch Country model for get countries and use compact()
+        $countries = Country::all();
+        // 3. return view
+        return view('show',compact('countries','crud'));
     }
 
     /**

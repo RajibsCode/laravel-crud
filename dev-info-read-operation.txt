@@ -1,0 +1,17 @@
+### read Operation
+
+1. use get() for catch users data in - index() method
+
+2. check data catch or not
+*then variable sent in route by compact()
+
+3. then @forelse loop for data show in - index blade
+
+4. set relation for show country name by id in - CrudOperations model
+
+5. use with() for get country - in index method
+
+6. then show in - index blade {{ $user->getCountry->name }}
+
+7. set route() for action buttons in - index blade 
+

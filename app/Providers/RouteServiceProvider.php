@@ -25,7 +25,13 @@ class RouteServiceProvider extends ServiceProvider
      * @return void
      */
     public function boot()
+
     {
+
+        // 1. explicit binding for country data
+        // Route::bind('crud',function($value){
+        //     return CrudOperations::where('id',$value)->with('getCountry')->get() ?? abort(404);
+        // });
         $this->configureRateLimiting();
 
         $this->routes(function () {
